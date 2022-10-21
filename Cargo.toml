@@ -1,0 +1,12 @@
+[package]
+name = "yt-ripper2"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+rustube = {version = "0.6.0", features = ["blocking","callback"]}
+terminal-menu = "2.0.4"
+text_io = "0.1.12"
+tokio = "1.21.2"
