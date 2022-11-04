@@ -5,7 +5,7 @@ use terminal_menu::*;
 #[tokio::main(flavor = "current_thread")]
 async fn main() {
     
-    println!(" ");
+    println!();
     println!("  --------------------------------------------------------------------------");
     print!("   youtube url > ");
     
@@ -14,9 +14,9 @@ async fn main() {
 
     let vid_id = Id::from_raw(url);
     
-    if let Err(_) = vid_id {
+    if vid_id.is_err() {
         println!("  --------------------------------------------------------------------------");
-        println!("   video not found");
+        println!("   video not found\n");
         return;
     }
 
@@ -58,7 +58,7 @@ async fn main() {
                 true => "Y",
                 false => "-",
             },
-            c.join(", ").to_string(),
+            c.join(", "),
         )));
     }
     menu_items.push(button("cancel"));
@@ -84,6 +84,6 @@ async fn main() {
         println!("   Downloaded to {}", path.to_str().unwrap_or("-"));
         println!("  --------------------------------------------------------------------------");
     }
-    println!("");
+    println!();
 }
 
